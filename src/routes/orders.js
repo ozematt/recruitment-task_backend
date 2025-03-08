@@ -5,7 +5,7 @@ import syncOrders from "../utils/sync.js";
 
 const router = express.Router();
 
-router.get("/csv", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const minWorth = Number(req.query.minWorth) || 0;
     const maxWorth = Number(req.query.maxWorth) || Number.MAX_SAFE_INTEGER;
@@ -43,7 +43,7 @@ router.get("/csv", async (req, res) => {
         },
         {
           label: "Total Value",
-          value: (row) => `${row.orderWorth} PLN`,
+          value: (row) => row.orderWorth,
         },
       ],
       delimiter: ";",
