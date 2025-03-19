@@ -1,7 +1,9 @@
 import express from "express";
-import { PORT } from "./config/env.js";
+import { PORT as envPORT } from "./config/env.js";
 import ordersRoutes from "./routes/orders.js";
 import authMiddleware from "./middleware/authMiddleware.js";
+
+const PORT = envPORT || "5003";
 
 const app = express();
 app.use(express.json());

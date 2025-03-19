@@ -4,7 +4,7 @@ import { IDOSELL_PANEL, IDOSELL_API_KEY } from "../config/env.js";
 const getOrdersIdosell = async () => {
   try {
     const response = await axios.get(
-      `${IDOSELL_PANEL}/api/admin/v5/orders/orders?page=1`,
+      `${IDOSELL_PANEL}/api/admin/v5/orders/orders?orderType=p,t,n,r`,
       {
         headers: {
           "X-API-KEY": `${IDOSELL_API_KEY}`,
